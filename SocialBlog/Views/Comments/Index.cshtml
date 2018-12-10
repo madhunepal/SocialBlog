@@ -1,0 +1,42 @@
+﻿@model IEnumerable<SocialBlog.Models.Comment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Post.PostTitle)
+        </th>
+        <th>USER</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommentText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post.PostTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Post.User.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CommentId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CommentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CommentId })
+        </td>
+    </tr>
+}
+
+</table>
