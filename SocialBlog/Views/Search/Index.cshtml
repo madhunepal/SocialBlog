@@ -1,0 +1,23 @@
+﻿@model SocialBlog.ViewModel.SearchViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm("SearchResults", "Search", FormMethod.Post, new { @class = "searchform" }))
+{
+<fieldset>
+    <legend>Name</legend>
+    <div class="editor-label">
+        @Html.Label("Search")
+    </div>
+    <div class="editor-field">
+        @Html.TextBox("Name")
+    </div>
+    <input type="submit" value="Search" class="formbutton" />
+</fieldset>
+}
+
